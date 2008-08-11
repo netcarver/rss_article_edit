@@ -70,12 +70,15 @@ function rss_article_edit($atts,$thing="")
 	global $thisarticle, $rss_ae_cookie;
 	
 	extract(lAtts(array(
+		'hidelive' => '',	# Set to non-empty string to hide links on live sites.
 		'prefix' => '',
 		'suffix' => ''
 		),$atts)
 	);
+
+	$hidelive = !empty($hidelive);
 	
-	return isset($_COOKIE[$rss_ae_cookie]) ? $prefix.'<a href="'.hu.'textpattern/index.php?event=article&amp;step=edit&amp;ID='.$thisarticle['thisid'].'">'.parse($thing).'</a>'.$suffix : "";
+	return (isset($_COOKIE[$rss_ae_cookie]) && !$hidelive) ? $prefix.'<a href="'.hu.'textpattern/index.php?event=article&amp;step=edit&amp;ID='.$thisarticle['thisid'].'">'.parse($thing).'</a>'.$suffix : "";
 	}
 
 # --- END PLUGIN CODE ---
