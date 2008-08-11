@@ -1,25 +1,14 @@
 <?php
-// This is a PLUGIN TEMPLATE.
-// Copy this file to a new name like abc_myplugin.php.  Edit the code, then
-// run this file at the command line to produce a plugin for distribution:
-// $ php abc_myplugin.php > abc_myplugin-0.1.txt
-
-// Plugin name is optional.  If unset, it will be extracted from the current
-// file name. Uncomment and edit this line to override:
-$plugin['name'] = 'rss_article_edit';
-$plugin['version'] = '0.1';
-$plugin['author'] = 'Rob Sable';
-$plugin['author_uri'] = 'http://www.wilshireone.com/';
-$plugin['description'] = 'Add edit article links to your public site.';
-
-// Plugin types:
-// 0 = regular plugin; loaded on the public web side only
-// 1 = admin plugin; loaded on both the public and admin side
-// 2 = library; loaded only when include_plugin() or require_plugin() is called
-$plugin['type'] = '1';
-
-@include_once('zem_tpl.php');
-
+# --- BEGIN PLUGIN META ---
+$plugin=array(
+'name'=>'rss_article_edit',
+'version'=>'0.1',
+'author'=>'Rob Sable',
+'author_uri'=>'http://www.wilshireone.com/',
+'description'=>'Add edit article links to your public site.',
+'type'=>'1',
+);
+# --- END PLUGIN META ---
 # --- BEGIN PLUGIN CODE ---
 
 if (@txpinterface == 'admin') {
