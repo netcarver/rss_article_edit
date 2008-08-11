@@ -1,0 +1,13 @@
+h1. rss_article_edit.git
+
+h2. Description
+
+p. This is a plugin, originally written by "Rob 
+Sable":http://www.wilshireone.com/textpattern-plugins/rss_article_edit 
+for 
+"Textpattern":http://textpattern.com.
+
+h2. Licence
+
+p. This project is released under the "GPLv2 licence":http://www.fsf.org/licensing/licenses/info/GPLv2.html.
+
