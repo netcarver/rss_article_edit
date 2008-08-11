@@ -67,7 +67,7 @@ function rss_admin_editlink($event, $step)
 
 function rss_article_edit($atts,$thing="") 
 	{
-	global $thisarticle, $rss_ae_cookie;
+	global $thisarticle, $rss_ae_cookie, $prefs;
 	
 	extract(lAtts(array(
 		'hidelive' => '',	# Set to non-empty string to hide links on live sites.
@@ -76,9 +76,9 @@ function rss_article_edit($atts,$thing="")
 		),$atts)
 	);
 
-	$hidelive = !empty($hidelive);
-	
-	return (isset($_COOKIE[$rss_ae_cookie]) && !$hidelive) ? $prefix.'<a href="'.hu.'textpattern/index.php?event=article&amp;step=edit&amp;ID='.$thisarticle['thisid'].'">'.parse($thing).'</a>'.$suffix : "";
+	$hidelive = !empty($hidelive) && ('live'===$prefs['production_status']);
+
+	return (isset($_COOKIE[$rss_ae_cookie]) && !$hidelive) ? $prefix.'<a href="'.hu.'textpattern/index.php?event=article&amp;step=edit&amp;ID='.$thisarticle['thisid'].'">'.parse($thing).'</a>'.$suffix : '';
 	}
 
 # --- END PLUGIN CODE ---
